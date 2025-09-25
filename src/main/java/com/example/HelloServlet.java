@@ -4,23 +4,23 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
 public class HelloServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
-        out.println("<html><body>");
-        out.println("<h1>Hello, this is a simple Servlet running on AWS!</h1>");
-        out.println("</body></html>");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        try {
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+            out.println("<html><body>");
+            out.println("<h1>Hello, this is a simple Servlet running on AWS!</h1>");
+            out.println("</body></html>");
+        } catch (IOException e) {
+            // Log and send HTTP 500 error
+            log("IOException in HelloServlet doGet", e);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Server error");
+        }
     }
-
 }
-
