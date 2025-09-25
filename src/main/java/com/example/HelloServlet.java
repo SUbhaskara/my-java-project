@@ -18,9 +18,12 @@ public class HelloServlet extends HttpServlet {
             out.println("<h1>Hello, this is a simple Servlet running on AWS!</h1>");
             out.println("</body></html>");
         } catch (IOException e) {
-            // Log and send HTTP 500 error
             log("IOException in HelloServlet doGet", e);
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Server error");
+            try {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Server error");
+            } catch (IOException ex) {
+                log("IOException in sendError of HelloServlet doGet", ex);
+            }
         }
     }
 }
