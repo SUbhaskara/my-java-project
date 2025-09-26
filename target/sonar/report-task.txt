@@ -1,0 +1,7 @@
+organization=subhaskara
+projectKey=SUbhaskara_my-java-project
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.67753
+dashboardUrl=https://sonarcloud.io/dashboard?id=SUbhaskara_my-java-project
+ceTaskId=AZmB9s-S5Jk7VyHATiLc
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZmB9s-S5Jk7VyHATiLc
