@@ -37,4 +37,7 @@ jobs:
         with:
           args: >
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.projectKey=SUbhaskara_my-java-project
+            -Dsonar.organization=subhaskara
 
+            
